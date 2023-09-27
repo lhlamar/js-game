@@ -1,3 +1,5 @@
+import "./style.css";
+
 const snake_col = "lightblue";
 const snake_border = "darkblue";
 const board_background = "#090809";
