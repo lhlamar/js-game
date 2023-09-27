@@ -1,0 +1,37 @@
+:root {
+}
+
+html,
+body {
+  overflow: hidden;
+  background-color: #e2dee2;
+  color: var(--lightest);
+}
+
+.upper-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn {
+  margin-left: 50px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.canvas-wrapper {
+  border: "3px solid green";
+  padding: 5px;
+  background-color: cornflowerblue;
+}
+
+canvas {
+  background-color: var(--dark);
+}
