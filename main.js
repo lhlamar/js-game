@@ -53,10 +53,10 @@ function handleSwipe() {
 
   if (Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
     // Vertical swipe
-    if (swipeDistanceY > 50 && !goingDown) {
+    if (swipeDistanceY > 50 && !goingUp) {
       dx = 0;
       dy = 10;
-    } else if (swipeDistanceY < -50 && !goingUp) {
+    } else if (swipeDistanceY < -50 && !goingDown) {
       dx = 0;
       dy = -10;
     }
