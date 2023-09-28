@@ -44,6 +44,10 @@ swipeContainer.addEventListener("touchend", () => {
 });
 
 function handleSwipe() {
+  const goingUp = dy === -10;
+  const goingDown = dy === 10;
+  const goingRight = dx === 10;
+  const goingLeft = dx === -10;
   const swipeDistanceY = touchEndY - touchStartY;
   const swipeDistanceX = touchEndX - touchStartX;
 
