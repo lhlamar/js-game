@@ -1,4 +1,5 @@
 import "./style.css";
+import handleSwipe from "./mobile-controls.js";
 
 const snake_col = "lightblue";
 const snake_border = "darkblue";
@@ -128,6 +129,8 @@ function change_direction(event) {
     dx = 0;
     dy = 10;
   }
+
+  handleSwipe();
 }
 
 function has_game_ended() {
