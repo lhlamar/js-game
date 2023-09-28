@@ -49,20 +49,20 @@ function handleSwipe() {
 
   if (Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
     // Vertical swipe
-    if (swipeDistanceY > 50) {
-      dx = 0;
-      dy = -10;
-    } else if (swipeDistanceY < -50) {
+    if (swipeDistanceY > 50 && !goindDown) {
       dx = 0;
       dy = 10;
+    } else if (swipeDistanceY < -50 && !goingUp) {
+      dx = 0;
+      dy = -10;
     }
   } else {
     // Horizontal swipe
-    if (swipeDistanceX > 50) {
+    if (swipeDistanceX > 50 && !goingLeft) {
       dx = 10;
       dy = 0;
       console.log("Swiped right!");
-    } else if (swipeDistanceX < -50) {
+    } else if (swipeDistanceX < -50 && !goingRight) {
       dx = -10;
       dy = 0;
       console.log("Swiped left!");
