@@ -166,6 +166,8 @@ function draw_food() {
 }
 
 function restart_game() {
+  gameScore = 0;
+  document.getElementById("scoreValue").innerHTML = gameScore;
   snake = [
     { x: 200, y: 200 },
     { x: 190, y: 200 },
@@ -176,9 +178,7 @@ function restart_game() {
   dy = 0;
   clear_board();
   drawSnake();
-  move_snake();
   draw_food();
-  score = 0;
 
   if (!gameInProgress) {
     main();
