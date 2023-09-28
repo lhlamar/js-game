@@ -178,6 +178,7 @@ function restart_game() {
   drawSnake();
   move_snake();
   draw_food();
+  score = 0;
 
   if (!gameInProgress) {
     main();
