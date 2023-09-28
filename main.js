@@ -1,5 +1,4 @@
 import "./style.css";
-import handleSwipe from "./mobile-controls.js";
 
 const snake_col = "lightblue";
 const snake_border = "darkblue";
@@ -13,8 +12,66 @@ let food_y = 50;
 let gameScore = 0;
 let gameInProgress = false;
 
-//style getters from css
+// swipe controls start here
+const swipeContainer = document.querySelector(".body");
+let touchStartY = 0;
+let touchEndY = 0;
+let touchStartX = 0;
+let touchEndX = 0;
 
+swipeContainer.addEventListener("touchstart", (event) => {
+  touchStartX = event.touches[0].clientX;
+});
+
+swipeContainer.addEventListener("touchmove", (event) => {
+  touchEndX = event.touches[0].clientX;
+});
+
+swipeContainer.addEventListener("touchend", () => {
+  handleSwipe();
+});
+
+swipeContainer.addEventListener("touchstart", (event) => {
+  touchStartY = event.touches[0].clientY;
+});
+
+swipeContainer.addEventListener("touchmove", (event) => {
+  touchEndY = event.touches[0].clientY;
+});
+
+swipeContainer.addEventListener("touchend", () => {
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const swipeDistanceY = touchEndY - touchStartY;
+  const swipeDistanceX = touchEndX - touchStartX;
+
+  if (Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
+    // Vertical swipe
+    if (swipeDistanceY > 50) {
+      dx = 0;
+      dy = -10;
+    } else if (swipeDistanceY < -50) {
+      dx = 0;
+      dy = 10;
+    }
+  } else {
+    // Horizontal swipe
+    if (swipeDistanceX > 50) {
+      dx = 10;
+      dy = 0;
+      console.log("Swiped right!");
+    } else if (swipeDistanceX < -50) {
+      dx = -10;
+      dy = 0;
+      console.log("Swiped left!");
+    }
+  }
+}
+//swipe controls end here
+
+//style getters from css
 document.getElementById("scoreValue").innerHTML = gameScore;
 
 const snakeboard = document.getElementById("gameCanvas");
@@ -129,8 +186,6 @@ function change_direction(event) {
     dx = 0;
     dy = 10;
   }
-
-  handleSwipe();
 }
 
 function has_game_ended() {
