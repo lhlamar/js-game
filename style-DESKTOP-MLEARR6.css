@@ -1,0 +1,16 @@
+html, body {
+  overflow: hidden;
+}
+
+.score {
+  display: block;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}

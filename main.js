@@ -10,7 +10,7 @@ let dy = 0;
 let food_x = 50;
 let food_y = 50;
 let gameScore = 0;
-const gamespeed = 100;
+let gameInProgress = false;
 
 //style getters from css
 
@@ -178,15 +178,22 @@ function restart_game() {
   drawSnake();
   move_snake();
   draw_food();
+
+  if (!gameInProgress) {
+    main();
+  }
 }
 
-function main() {
+function main(gamespeed) {
   if (has_game_ended()) {
     snakeboard_ctx.font = "30px Arial";
     snakeboard_ctx.fillStyle = "red";
     snakeboard_ctx.fillText("Game Over", 100, 200);
+    gameInProgress = false;
     return;
   }
+
+  gameInProgress = true;
 
   changing_direction = false;
   setTimeout(function onTick() {
@@ -197,7 +204,7 @@ function main() {
 
     // Call main again
     main();
-  }, gamespeed);
+  }, 100);
 }
 
 main();
